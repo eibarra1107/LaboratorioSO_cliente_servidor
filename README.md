@@ -8,3 +8,16 @@ El servidor crea la FIFO, recibe cadenas desde el cliente y devuelve la versión
 El cliente envía mensajes y muestra las respuestas del servidor.
 
 Al enviar la palabra end, ambos procesos finalizan ordenadamente.
+
+
+🧠 Explicación técnica
+
+FIFO (Named Pipe): canal especial del sistema de archivos que permite comunicación bidireccional entre procesos.
+
+open(): abre o crea el archivo FIFO con permisos 0640 (rw-r-----).
+
+mkfifo(): crea la FIFO si no existe.
+
+read() / write(): permiten el envío y recepción de cadenas.
+
+sleep(2) en el servidor evita que lea su propio mensaje antes que el cliente.
